@@ -1,0 +1,55 @@
+{
+  "devices": [
+    "iPhone", "iPhone 15", "iPhone 14", "iPhone 13", "iPad",
+    "Samsung Galaxy", "Samsung S24", "Android phone",
+    "Pixel 8", "OnePlus", "any smartphone"
+  ],
+  "platforms": [
+    "GitHub", "GitLab", "Bitbucket", "Git"
+  ],
+  "actions": [
+    "push code to",
+    "upload a folder to",
+    "commit and push to",
+    "unzip and deploy to",
+    "push files to"
+  ],
+  "contexts": [
+    "without a laptop",
+    "without a computer",
+    "from your phone",
+    "on mobile",
+    "without using the terminal",
+    "without command line",
+    "with no coding knowledge"
+  ],
+  "pain_points": [
+    "Git CLI on mobile is impossible. There's no native way to unzip a project folder, stage changes, and push commits from your phone — until now.",
+    "If you've ever tried to use Termux or SSH just to push a quick fix from your phone, you know how painful it is. Typing git commands on a touchscreen keyboard is a nightmare.",
+    "Most developers assume you need a laptop to use Git. That's not true anymore. You can unzip, edit, and push directly from your mobile device in under 30 seconds.",
+    "You're at dinner, on the train, or lying in bed — and you need to push a fix to your repo RIGHT NOW. Opening a laptop isn't an option. Here's how to do it from your phone."
+  ],
+  "faq_pairs": [
+    {
+      "q": "Can I really push to {platform} from my {device}?",
+      "a": "Yes. {AppName} handles the entire Git workflow — unzip, stage, commit, and push — directly from your mobile browser. No terminal required."
+    },
+    {
+      "q": "Do I need to install an app?",
+      "a": "No. {AppName} is a Progressive Web App. Just visit the site on your {device}, add it to your home screen, and you're ready to push code in seconds."
+    },
+    {
+      "q": "Is my code secure?",
+      "a": "Absolutely. We use OAuth directly with {platform}. We never store your password or SSH keys. Your credentials never touch our servers."
+    },
+    {
+      "q": "Does it work with private repositories?",
+      "a": "Yes. Once you authenticate with {platform} via OAuth, you can push to any public or private repository you have access to."
+    },
+    {
+      "q": "What file types can I upload?",
+      "a": "You can upload and unzip .zip, .tar.gz, and .rar files containing any project files — HTML, CSS, JavaScript, Python, React, and more."
+    }
+  ]
+}
+
