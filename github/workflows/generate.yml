@@ -5,35 +5,44 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
-  build-and-deploy:
+  generate-pages:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Generate the 1500+ Pages
-        run: node generator.js
+      - name: Generate Pages
+        run: |
+          echo "🚀 Starting page generation..."
+          node generator.js
+          echo "✅ Generation complete!"
+          ls -la output/
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./output
+
+  deploy-pages:
+    needs: generate-pages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          enable_jekyll: false
-
-
-          
-
-
-
-
+        id: deployment
+        uses: actions/deploy-pages@v4
 
